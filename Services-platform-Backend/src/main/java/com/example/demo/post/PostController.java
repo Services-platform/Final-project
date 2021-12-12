@@ -31,6 +31,11 @@ public class PostController {
     public Post addPost(@RequestBody Form form){
         return postService.addPost(form.getPost(), form.getCategory_id(), form.getUser_id());
     }
+
+    @DeleteMapping("{id}")
+    public void deletePost(@PathVariable String id){
+        postService.deletePost(id);
+    }
 }
 
 class Form{

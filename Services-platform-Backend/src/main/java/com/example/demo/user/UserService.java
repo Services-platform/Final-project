@@ -27,4 +27,16 @@ public class UserService {
     public User addUser(User user) {
         return userRepository.save(user);
     }
+
+    public void updateUser(String id, User userData) {
+        Integer User_id = Integer.parseInt(id);
+        User user = userRepository.findById(User_id).orElse(null);
+        if (user != null){
+            user.setUser_name(userData.getUser_name());
+            user.setEmail(userData.getEmail());
+            user.setPhone_number(userData.getPhone_number());
+            user.setPassword(userData.getPassword());
+            userRepository.save(user);
+        }
+    }
 }

@@ -39,4 +39,9 @@ public class PostService {
         post.setUser(user);
         return postRepository.save(post);
     }
+
+    public void deletePost(String id) {
+        Integer post_id = Integer.parseInt(id);
+        postRepository.deleteById(post_id);
+    }
 }
