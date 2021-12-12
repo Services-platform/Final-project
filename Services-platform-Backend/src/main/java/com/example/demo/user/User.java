@@ -11,13 +11,13 @@ public class User {
     private int user_id;
     private String user_name;
     private String email;
-    private String phone_number;
+    private int phone_number;
     private String password;
 
     public User() {
     }
 
-    public User(int user_id, String user_name, String email, String phone_number, String password) {
+    public User(int user_id, String user_name, String email, int phone_number, String password) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.email = email;
@@ -49,11 +49,11 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone_number() {
+    public int getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(String phone_number) {
+    public void setPhone_number(int phone_number) {
         this.phone_number = phone_number;
     }
 
