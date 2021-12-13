@@ -31,6 +31,11 @@ public class OfferController {
         return offerService.addOffer(form.getOffer(), form.getWorker_id(), form.getPost_id());
     }
 
+    @DeleteMapping("{id}")
+    public void deleteOffer(@PathVariable String id){
+        offerService.deleteOffer(id);
+    }
+
 }
 
 class Form{
