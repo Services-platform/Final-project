@@ -1,5 +1,6 @@
 package com.example.demo.worker;
 
+import com.example.demo.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,11 @@ public class WorkerController {
     @PostMapping
     public Worker addWorker(@RequestBody Form form){
         return workerService.addWorker(form.getWorker(), form.getCategory_id());
+    }
+
+    @PutMapping("/{id}")
+    public void updateWorker(@PathVariable String id, @RequestBody Form form){
+        workerService.updateWorker(id,form.getWorker(), form.getCategory_id() );
     }
 }
 
