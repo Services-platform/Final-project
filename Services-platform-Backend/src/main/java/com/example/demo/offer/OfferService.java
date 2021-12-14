@@ -41,4 +41,9 @@ public class OfferService {
         offer.setPost(post);
         return offerRepository.save(offer);
     }
+
+    public void deleteOffer(String id) {
+        Integer offer_id = Integer.parseInt(id);
+        offerRepository.deleteById(offer_id);
+    }
 }

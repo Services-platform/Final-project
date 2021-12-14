@@ -7,6 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("offer")
+@CrossOrigin("*")
 public class OfferController {
 
     private final OfferService offerService;
@@ -29,6 +30,11 @@ public class OfferController {
     @PostMapping
     public Offer addOffer(@RequestBody Form form){
         return offerService.addOffer(form.getOffer(), form.getWorker_id(), form.getPost_id());
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteOffer(@PathVariable String id){
+        offerService.deleteOffer(id);
     }
 
 }
