@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+.signin-container {
+  display: flex;
+  margin: 5%;
+  justify-content: center;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.signin-radio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30%;
+}
+
+.signin-input{
+    margin-bottom: 10px;
+}
+.signin-btn{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signin-form{
+    width: 500px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.signin-txt{
+    text-align: center;
+}
+
+.my-signin-btn{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-label{
+    color: red;
+    margin-bottom: 8px;
+}
+
+.signin-txt,.signin-label{
+  font-weight: 500;
+  padding: 5px;
+  font-family: 'Fira Sans', sans-serif;
+}
