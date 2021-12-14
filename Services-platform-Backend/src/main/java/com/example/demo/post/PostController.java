@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "posts")
+@CrossOrigin("*")
 public class PostController {
 
     private final PostService postService;

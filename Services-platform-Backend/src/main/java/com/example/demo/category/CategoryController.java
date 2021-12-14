@@ -7,6 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "category")
+@CrossOrigin("*")
 public class CategoryController {
 
     private final CategoryService categoryService;

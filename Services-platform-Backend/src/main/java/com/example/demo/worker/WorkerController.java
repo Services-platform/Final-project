@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "worker")
+@CrossOrigin("*")
 public class WorkerController {
 
     private final WorkerService workerService;
