@@ -52,20 +52,19 @@ function Signup() {
         if(category === 0){
             setErrMsg("Please Choose Category")
             setErrToggle(!errToggle)
-        }else if(phone === undefined){
-            setErrMsg("Please Enter your phone number")
-            setErrToggle(!errToggle)
         }else if(userName === undefined){
             setErrMsg("Please Enter User name")
             setErrToggle(!errToggle)
         }else if(email === undefined){
             setErrMsg("Please Enter your Email")
             setErrToggle(!errToggle)
+        }else if(phone === undefined){
+            setErrMsg("Please Enter your phone number")
+            setErrToggle(!errToggle)
         }else if(password === undefined){
             setErrMsg("Please Enter your password")
             setErrToggle(!errToggle)
-        }
-        else if(speciality === undefined){
+        }else if(speciality === undefined){
             setErrMsg("Please Enter your speciality")
             setErrToggle(!errToggle)
         }else {
@@ -147,8 +146,8 @@ function Signup() {
                 {errToggle && <label className="error-label">{"* " + errMsg}</label>}
                     <Button variant="primary" onClick={() => {if(toggle === true){sendWorkerData()}else{sendUserrData()}}}>Sign Up</Button>
                     <p className="signup-p">
-                    Already have an account? <a href="#">sign in</a>
-                </p>
+                    Already have an account? <a href="/signin">sign in</a>
+                    </p>
                 </div>
             </form>
         </div>
