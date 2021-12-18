@@ -30,26 +30,32 @@ public class WorkerController {
 
     @PostMapping
     public Worker addWorker(@RequestBody Form form){
-        return workerService.addWorker(form.getWorker(), form.getCategory_id());
+        return workerService.addWorker(form.getWorker(), form.getUser_id(), form.getCategory_id());
     }
 
     @PutMapping("/{id}")
     public void updateWorker(@PathVariable String id, @RequestBody Form form){
-        workerService.updateWorker(id,form.getWorker(), form.getCategory_id() );
+        workerService.updateWorker(id,form.getWorker(), form.getUser_id(), form.getCategory_id() );
     }
 }
 
 class Form{
     private Worker worker;
+    private Integer user_id;
     private Integer category_id;
 
-    public Form(Worker worker, Integer category_id) {
+    public Form(Worker worker, Integer category_id, Integer user_id) {
         this.worker = worker;
+        this.user_id = user_id;
         this.category_id = category_id;
     }
 
     public Worker getWorker() {
         return worker;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
     }
 
     public Integer getCategory_id() {

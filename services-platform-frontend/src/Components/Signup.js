@@ -12,6 +12,7 @@ function Signup() {
     const [phone, setPhone] = useState();
     const [speciality, setSpeciality] = useState();
     const [category, setCategory] = useState(0);
+    const [role, setRole] = useState(1);
     const [errMsg, setErrMsg] = useState();
     const [errToggle, setErrToggle] = useState(false);
     const [toggle, setToggle] = useState(false);
@@ -34,10 +35,14 @@ function Signup() {
             axios
             .post("http://localhost:8080/users", 
             {
-                "user_name": userName,
-                "email": email,
-                "phone_number": phone,
-                "password": password
+                "user":
+                {
+                    "name": userName,
+                    "email": email,
+                    "phone": phone,
+                    "password": password
+                },
+                "role_id": role
             })
             .then((response) => {
             console.log(response)
@@ -69,17 +74,27 @@ function Signup() {
             setErrToggle(!errToggle)
         }else {
             axios
+            .post("http://localhost:8080/users", 
+            {
+                "user":
+                {
+                    "name": userName,
+                    "email": email,
+                    "phone": phone,
+                    "password": password
+                },
+                "role_id": role
+            })
+            .then((response) => {
+            axios
             .post("http://localhost:8080/worker", 
             {
                 "worker":
                 {
-                    "worker_name": userName,
-                    "email": email,
-                    "phone": phone,
                     "speciality": speciality,
-                    "password": password,
                     "rating" : 5
                 },
+                "user_id": response.data.id,
                 "category_id": category
             })
             .then((response) => {
@@ -88,6 +103,30 @@ function Signup() {
             .catch((err) => {
             console.log(err);
             });
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+            // axios
+            // .post("http://localhost:8080/worker", 
+            // {
+            //     "worker":
+            //     {
+            //         "worker_name": userName,
+            //         "email": email,
+            //         "phone": phone,
+            //         "speciality": speciality,
+            //         "password": password,
+            //         "rating" : 5
+            //     },
+            //     "category_id": category
+            // })
+            // .then((response) => {
+            // console.log(response)
+            // })
+            // .catch((err) => {
+            // console.log(err);
+            // });
         }
     }
 
@@ -97,13 +136,17 @@ function Signup() {
                 <h3 className="signup-txt">Sign Up</h3>
                 <div className="signup-radio">
                 <div className="form-check">
-                    <input onClick={() => {setToggle(false)}} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                    <input onClick={() => {
+                        setToggle(false)
+                        setRole(1)}} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
                     <label className="form-check-label" htmlFor="flexRadioDefault1">
                         User
                     </label>
                 </div>
                 <div className="form-check">
-                    <input onClick={() => {setToggle(true)}} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"/>
+                    <input onClick={() => {
+                        setToggle(true)
+                        setRole(2)}} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"/>
                     <label className="form-check-label" htmlFor="flexRadioDefault2">
                          Worker
                     </label>
@@ -126,7 +169,7 @@ function Signup() {
                 </div>
                 {toggle && <div className="form-group">
                     <label className="signup-label">Speciality</label>
-                    <input onChange={(e) => {setSpeciality(e.target.value)}} type="text" className="form-control signup-input" placeholder="Phone number" />
+                    <input onChange={(e) => {setSpeciality(e.target.value)}} type="text" className="form-control signup-input" placeholder="Enter speciality" />
                 </div>}
                 <div className="form-group">
                     <label className="signup-label">Password</label>
