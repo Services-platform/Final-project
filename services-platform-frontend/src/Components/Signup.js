@@ -45,10 +45,10 @@ function Signup() {
                 "role_id": role
             })
             .then((response) => {
-            console.log(response)
+                console.log(response)
             })
             .catch((err) => {
-            console.log(err);
+                console.log(err);
             });
         }
     }
@@ -98,35 +98,15 @@ function Signup() {
                 "category_id": category
             })
             .then((response) => {
-            console.log(response)
+                console.log(response)
             })
             .catch((err) => {
-            console.log(err);
+                console.log(err);
             });
             })
             .catch((err) => {
-            console.log(err);
+                console.log(err);
             });
-            // axios
-            // .post("http://localhost:8080/worker", 
-            // {
-            //     "worker":
-            //     {
-            //         "worker_name": userName,
-            //         "email": email,
-            //         "phone": phone,
-            //         "speciality": speciality,
-            //         "password": password,
-            //         "rating" : 5
-            //     },
-            //     "category_id": category
-            // })
-            // .then((response) => {
-            // console.log(response)
-            // })
-            // .catch((err) => {
-            // console.log(err);
-            // });
         }
     }
 
