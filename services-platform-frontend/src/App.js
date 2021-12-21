@@ -1,9 +1,9 @@
 import {BrowserRouter,Routes,Route} from "react-router-dom";
-import Signup from "./Components/Signup"
-import Signin from "./Components/Signin"
-import Navbar from "./Components/Navbar";
+import Signup from "./Components/signup/Signup"
+import Signin from "./Components/login/Signin"
+import Navbar from "./Components/navbar/Navbar";
+import UserHome from "./Components/userHome/UserHome";
 import './App.css';
-import UserHome from "./Components/UserHome";
 
 function App() {
   return (

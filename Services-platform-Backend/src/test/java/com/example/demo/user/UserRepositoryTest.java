@@ -15,14 +15,14 @@ class UserRepositoryTest {
         this.userRepository = userRepository;
     }
 
-//    @Test
-//    void itShouldFindUser() {
-//        User user = new User("a@a.com", "123");
-//        User savedUser = userRepository.save(user);
-//        Integer user_id = savedUser.getId();
-//        User result = userRepository.findById(savedUser.getId());
-//        assertNotNull(result);
-//    }
+    @Test
+    void itShouldFindUser() {
+        User user = new User("a@a.com", "123");
+        User savedUser = userRepository.save(user);
+        Integer user_id = savedUser.getId();
+        User result = userRepository.findById(user_id).orElse(null);
+        assertNotNull(result);
+    }
 
     @Test
     void itShouldSaveUser() {

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-import { addUser, addToken } from "../reducers/user/action";
+import { addUser, addToken } from "../../reducers/user/action";
 import Button from 'react-bootstrap/Button';
 import "./signin.css"
 
