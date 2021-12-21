@@ -20,7 +20,6 @@ function Signin() {
         .then((response) => {
             const token = response.data.access_token;
             const decoded = jwt_decode(token);
-            console.log(decoded)
             // add to redux
             const userAction = addUser({
                 id: decoded.id,
