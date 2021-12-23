@@ -6,7 +6,6 @@ import Navbar from "./Components/navbar/Navbar";
 import UserHome from "./Components/userHome/UserHome";
 import ServiceRequest from "./Components/serviceRequest/ServiceRequest";
 import Offers from "./Components/offers/Offers";
-import "./App.css";
 import WorkerHome from "./Components/workerHome/WorkerHome";
 import UserRequests from "./Components/userRequests/UserRequests";
 
