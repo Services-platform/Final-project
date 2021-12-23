@@ -1,15 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import "./categories.css";
 
 function Categories() {
+  const state = useSelector((state) => {
+    return {
+      user: state.userReducer,
+    };
+  });
   const navigate = useNavigate();
   return (
     <>
       <div>
         <Button
           onClick={() => {
-            navigate("/Service/request");
+            state.user.isLogedIn
+              ? navigate("/Service/request")
+              : navigate("/signin");
           }}
           className="request-btn"
           variant="warning"

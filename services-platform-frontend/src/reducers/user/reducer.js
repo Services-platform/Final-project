@@ -12,8 +12,8 @@ const userReducer = (state = initialState, { type, payload }) => {
     case "ADD_USER":
       localStorage.setItem("user", JSON.stringify(payload));
       return {
-        user: state.user,
-        token: payload,
+        user: payload,
+        token: state.token,
         isLogedIn: true,
       };
     case "ADD_TOKEN":

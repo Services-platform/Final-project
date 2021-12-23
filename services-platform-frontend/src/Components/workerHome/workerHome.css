@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+
+.worker-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+}
+.worker-home-header {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
+.card-category {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.card-title {
+  margin-bottom: 5%;
+}
+.request-cards {
+  background-color: #eeeeee;
+  font-family: "Fira Sans", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+.card {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  height: 470px;
+}
+.card-span {
+  font-family: "Fira Sans", sans-serif;
+  color: #928f8f;
+}
+.offer-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  background-color: #ffc824;
+}
+.card-img {
+  padding: 5px;
+  border-radius: 7px;
+}
+.send-offer-btn {
+  font-family: "Fira Sans", sans-serif;
+  background-color: #ffc824;
+}

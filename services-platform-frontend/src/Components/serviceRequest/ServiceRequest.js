@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import SideBar from "../sidebar/SideBar";
@@ -45,10 +45,10 @@ function ServiceRequest() {
       category_id: category,
       user_id: state.user.user.id,
     };
-    const config = {
-      headers: { Authorization: `Bearer ${state.token}` },
-    };
     if (state.user.isLogedIn) {
+      const config = {
+        headers: { Authorization: `Bearer ${state.token}` },
+      };
       axios
         .post("http://localhost:8080/posts", data, config)
         .then((response) => {
