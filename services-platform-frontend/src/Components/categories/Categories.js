@@ -16,7 +16,7 @@ function Categories() {
         <Button
           onClick={() => {
             state.user.isLogedIn
-              ? navigate("/Service/request")
+              ? navigate("/service/request")
               : navigate("/signin");
           }}
           className="request-btn"

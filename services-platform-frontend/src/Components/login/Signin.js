@@ -28,7 +28,11 @@ function Signin() {
         const tokenAction = addToken(token);
         dispatch(userAction);
         dispatch(tokenAction);
-        navigate("/Home");
+        if (decoded.role == "USER") {
+          navigate("/Home");
+        } else {
+          navigate("/worker/Home");
+        }
       })
       .catch((err) => {
         console.log(err);
