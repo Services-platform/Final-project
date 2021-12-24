@@ -39,6 +39,18 @@ function UserRequests() {
         console.log(err);
       });
   };
+  const deletePost = (postId) => {
+    axios
+      .delete("http://localhost:8080/posts/" + postId, config)
+      .then((response) => {
+        setUserPosts((userPosts) =>
+          userPosts.filter((post) => post.post_id !== postId)
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="user-requests-container">
       <div>
@@ -89,7 +101,13 @@ function UserRequests() {
                         </div>
                       </div>
                       <div className="user-post-btns">
-                        <Button variant="danger" className="delete-request-btn">
+                        <Button
+                          variant="danger"
+                          className="delete-request-btn"
+                          onClick={() => {
+                            deletePost(element.post_id);
+                          }}
+                        >
                           Delete Request
                         </Button>
                         <Button

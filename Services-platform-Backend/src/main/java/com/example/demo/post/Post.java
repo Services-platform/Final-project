@@ -1,9 +1,11 @@
 package com.example.demo.post;
 
 import com.example.demo.category.Category;
+import com.example.demo.offer.Offer;
 import com.example.demo.user.User;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "post")
@@ -21,6 +23,9 @@ public class Post {
     private Category category;
     @ManyToOne(fetch = FetchType.EAGER, optional = true)
     private User user;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Offer> offers;
+
 
     public Post() {
     }
