@@ -1,0 +1,54 @@
+
+.category-container{
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+    padding: 10px;
+}
+
+.request-btn{
+    margin-top: 2%;
+    margin-left: 2%;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 450;
+    background-color: #ffc824 !important;
+}
+
+.category-list{
+    margin-top: 30px;
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.category-name{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    margin-top: 15px;
+    padding: 10px;
+    color: rgb(75, 123, 124);
+}
+
+.category-name h4{
+    margin-bottom: 20px;
+}
+
+.app-name{
+    color: #ffc824;
+}
+
+.service-icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.icon-txt{
+    margin-left: 10px;
+    font-weight: 400;
+    font-family: 'Fira Sans', sans-serif;
+    color: black;
+}

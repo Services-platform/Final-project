@@ -28,6 +28,9 @@ public class PostController {
         return postService.getPost(id);
     }
 
+    @GetMapping("user/{id}")
+    public List<Post> getAllPostsByUserId(@PathVariable String id){ return postService.getAllPostsByUserId(id); }
+
     @PostMapping
     public Post addPost(@RequestBody Form form){
         return postService.addPost(form.getPost(), form.getCategory_id(), form.getUser_id());

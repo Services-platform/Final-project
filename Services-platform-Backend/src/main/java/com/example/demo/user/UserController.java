@@ -28,13 +28,25 @@ public class UserController {
     }
 
     @PostMapping
-    public User addUser(@RequestBody User user){
-        return userService.addUser(user);
+    public User addUser(@RequestBody Form form){
+        return userService.addUser(form);
     }
 
     @PutMapping("/{id}")
     public void updateUser(@PathVariable String id, @RequestBody User userData){
         userService.updateUser(id, userData);
     }
+}
 
+class Form{
+    private User user;
+    private Integer role_id;
+
+    public User getUser() {
+        return user;
+    }
+
+    public Integer getRole_id() {
+        return role_id;
+    }
 }

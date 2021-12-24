@@ -1,5 +1,6 @@
 package com.example.demo.offer;
 
+import com.example.demo.post.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,10 @@ public class OfferController {
     public Offer getOffer(@PathVariable String id){
         return offerService.getOffer(id);
     }
+
+    @GetMapping("post/{id}")
+    public List<Offer> getAllOffersByPostId(@PathVariable String id){ return offerService.getAllOffersByPostId(id); }
+
 
     @PostMapping
     public Offer addOffer(@RequestBody Form form){

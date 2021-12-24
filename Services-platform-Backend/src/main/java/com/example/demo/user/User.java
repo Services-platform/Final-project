@@ -1,5 +1,7 @@
 package com.example.demo.user;
 
+import com.example.demo.roles.Role;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,37 +10,47 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
-    private String user_name;
+    private int id;
+    private String name;
+    @Column(unique = true)
     private String email;
-    private int phone_number;
+    private int phone;
     private String password;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Role role;
 
     public User() {
     }
 
-    public User(int user_id, String user_name, String email, int phone_number, String password) {
-        this.user_id = user_id;
-        this.user_name = user_name;
+    public User(String email, String password) {
         this.email = email;
-        this.phone_number = phone_number;
         this.password = password;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User(int id, String name, String email, int phone, String password, Role role) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.role = role;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public int getId() {
+        return id;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -49,12 +61,12 @@ public class User {
         this.email = email;
     }
 
-    public int getPhone_number() {
-        return phone_number;
+    public int getPhone() {
+        return phone;
     }
 
-    public void setPhone_number(int phone_number) {
-        this.phone_number = phone_number;
+    public void setPhone(int phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
@@ -65,14 +77,23 @@ public class User {
         this.password = password;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + user_id +
-                ", user_name='" + user_name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", phone_number='" + phone_number + '\'' +
+                ", phone=" + phone +
                 ", password='" + password + '\'' +
+                ", role=" + role +
                 '}';
     }
 }

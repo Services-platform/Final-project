@@ -1,0 +1,82 @@
+.user-requests-container {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  background-color: #eeeeee;
+}
+.request-header {
+  text-align: center;
+}
+.user-requests-body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Fira Sans", sans-serif;
+}
+.user-request-card {
+  margin: 2% 4%;
+  height: auto;
+}
+.user-request-top {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+}
+.user-request-img {
+  margin-top: 2%;
+  border-radius: 4px;
+  margin-left: 4%;
+}
+.offer-card {
+  height: 250px;
+}
+.user-request-title {
+  margin-bottom: 1%;
+  float: left;
+}
+.user-request-description {
+  margin-bottom: 1%;
+}
+.user-card-label {
+  font-size: 14.5px;
+  font-weight: 400;
+  margin-right: 1%;
+  color: #928f8f;
+}
+.user-request-details {
+  margin-top: 4%;
+  display: flex;
+  flex-direction: column;
+}
+.delete-request-btn {
+}
+.worker-img {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+.user-offers {
+  margin: 2% 4%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5%;
+}
+.offer-title {
+  font-size: 17px;
+}
+.offer-text {
+  font-size: 14px;
+}
+.user-post-btns {
+  display: flex;
+  gap: 2%;
+  justify-content: center;
+}
+.offer-btns {
+  display: flex;
+  gap: 3%;
+  justify-content: center;
+}
+.card-header {
+  background-color: #222d32;
+  color: #fff;
+}

@@ -7,6 +7,7 @@ import com.example.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,5 +44,18 @@ public class PostService {
     public void deletePost(String id) {
         Integer post_id = Integer.parseInt(id);
         postRepository.deleteById(post_id);
+    }
+    public List<Post> getAllPostsByUserId(String id) {
+        Integer user_id = Integer.parseInt(id);
+        List<Post> posts = postRepository.findAll();
+        List<Post> userPosts = new ArrayList<>();
+        for (Post temp : posts) {
+            if (temp.getUser() != null) {
+                if (temp.getUser().getId() == user_id) {
+                    userPosts.add(temp);
+                }
+            }
+        }
+        return userPosts;
     }
 }
