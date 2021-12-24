@@ -1,54 +1,59 @@
-
-.category-container{
-    margin-top: 30px;
-    text-align: center;
-    font-family: 'Fira Sans', sans-serif;
-    padding: 10px;
+.category-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  color: #222d32;
+  font-family: "Fira Sans", sans-serif;
 }
 
-.request-btn{
-    margin-top: 2%;
-    margin-left: 2%;
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 450;
-    background-color: #ffc824 !important;
+.request-btn {
+  margin-top: 2%;
+  margin-left: 2%;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 450;
+  background-color: #ffc824 !important;
 }
 
-.category-list{
-    margin-top: 30px;
-    margin-bottom: 100px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
+.category-list {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
 }
 
-.category-name{
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 400;
-    margin-top: 15px;
-    padding: 10px;
-    color: rgb(75, 123, 124);
+.category-name {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  margin-top: 15px;
+  padding: 10px;
+  color: rgb(75, 123, 124);
 }
 
-.category-name h4{
-    margin-bottom: 20px;
+.category-name h4 {
+  margin-bottom: 20px;
 }
 
-.app-name{
-    color: #ffc824;
+.app-name {
+  color: #ffc824;
 }
 
-.service-icons{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
+.service-icons {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-left: 28%;
+  align-items: flex-start;
+  gap: 10px;
+}
+.car {
+  margin-left: 30%;
 }
 
-.icon-txt{
-    margin-left: 10px;
-    font-weight: 400;
-    font-family: 'Fira Sans', sans-serif;
-    color: black;
+.icon-txt {
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: small;
+  font-family: "Fira Sans", sans-serif;
+  color: black;
 }

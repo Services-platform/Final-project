@@ -1,35 +1,36 @@
-.home-container{
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+.home-container {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
 }
 
-.main{
-    display: flex;
-    flex-direction: column;
+.main {
+  display: flex;
+  flex-direction: column;
 }
 
-.main-hero{
-    display: flex;
-    gap: 20px;
-    font-weight: 600;
-    padding: 5px;
-    font-family: 'Fira Sans', sans-serif;
-    background-repeat: no-repeat;
-    background-image: src="./images/hero-img.jpg";
-    height: 40%;
-    width: 100%;
-    background-size: 100%;
+.main-hero {
+  display: flex;
+  gap: 20px;
+  font-weight: 600;
+  padding: 5px;
+  font-family: "Fira Sans", sans-serif;
+  background-repeat: no-repeat;
+  background-image: src= "./images/hero-img.jpg";
+  height: 40%;
+  width: 100%;
+  background-size: 100%;
 }
 
-.hero-text{
-    margin-top: 5%;
-    margin-left: 5%;
+.hero-text {
+  margin-top: 10%;
+  margin-left: 40%;
+  color: #fff;
 }
 
-.hero-text h1{
-    font-size: 3rem;
+.hero-text h1 {
+  font-size: 3rem;
 }
 
-.hero-text p{
-    font-size: 1.3rem;
+.hero-text p {
+  font-size: 1.3rem;
 }
