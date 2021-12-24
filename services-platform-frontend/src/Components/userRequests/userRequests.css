@@ -58,13 +58,18 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 5%;
 }
 .offer-title {
   font-size: 17px;
 }
 .offer-text {
   font-size: 14px;
+}
+.user-post-btns {
+  display: flex;
+  gap: 2%;
+  justify-content: center;
 }
 .offer-btns {
   display: flex;

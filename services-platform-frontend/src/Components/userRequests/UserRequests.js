@@ -7,12 +7,8 @@ import "./userRequests.css";
 
 function UserRequests() {
   const [userPosts, setUserPosts] = useState();
-  // const [postTitle, setPostTitle] = useState();
-  // const [postDescription, setPostDescription] = useState();
-  // const [postCategory, setPostCategory] = useState();
-  // const [postImage, setPostImage] = useState();
-  // const [workerName, setWorkerName] = useState();
-  // const [title, setTitle] = useState();
+  const [postOffers, setPostOffers] = useState();
+  const [showOffers, setShowOffers] = useState(false);
 
   const state = useSelector((state) => {
     return {
@@ -20,20 +16,29 @@ function UserRequests() {
       token: state.userReducer.token,
     };
   });
+  const config = {
+    headers: { Authorization: `Bearer ${state.token}` },
+  };
   useEffect(() => {
-    const config = {
-      headers: { Authorization: `Bearer ${state.token}` },
-    };
     axios
-      .get("http://localhost:8080/posts/user/2", config)
+      .get("http://localhost:8080/posts/user/" + state.user.id, config)
       .then((response) => {
-        console.log(response.data);
         setUserPosts(response.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+  const getOffers = (postId) => {
+    axios
+      .get("http://localhost:8080/offer/post/" + postId, config)
+      .then((response) => {
+        setPostOffers(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="user-requests-container">
       <div>
@@ -41,10 +46,7 @@ function UserRequests() {
       </div>
       <div className="user-requests-body">
         <div className="request-header">
-          <h1>
-            My Requests
-            {/* <hr /> */}
-          </h1>
+          <h1>My Requests</h1>
         </div>
         {userPosts !== undefined ? (
           <>
@@ -86,40 +88,82 @@ function UserRequests() {
                           </Card.Text>
                         </div>
                       </div>
-                      <Button variant="danger" className="delete-request-btn">
-                        Delete
-                      </Button>
-                      <div className="request-header">
-                        <hr />
-                        <h3>Offers</h3>
+                      <div className="user-post-btns">
+                        <Button variant="danger" className="delete-request-btn">
+                          Delete Request
+                        </Button>
+                        <Button
+                          variant="warning"
+                          className="delete-request-btn"
+                          onClick={() => {
+                            showOffers
+                              ? setShowOffers(false)
+                              : setShowOffers(true);
+                            getOffers(element.post_id);
+                          }}
+                        >
+                          Show offers
+                        </Button>
                       </div>
-                      <div className="user-offers">
-                        <Card className="offer-card" style={{ width: "15rem" }}>
-                          <div className="worker-img">
-                            <img
-                              src="../images/user-img.png"
-                              width="80px"
-                              height="80px"
-                            />
+                      {showOffers && (
+                        <>
+                          <div className="request-header">
+                            <hr />
+                            <h3>Offers</h3>
                           </div>
-                          <Card.Body>
-                            <Card.Title className="offer-title">
-                              Card Title
-                            </Card.Title>
-                            <Card.Text className="offer-text">
-                              Some quick
-                            </Card.Text>
-                            <div className="offer-btns">
-                              <Button variant="success" size="sm">
-                                Accept
-                              </Button>
-                              <Button variant="danger" size="sm">
-                                Reject
-                              </Button>
-                            </div>
-                          </Card.Body>
-                        </Card>
-                      </div>
+                          <div className="user-offers">
+                            {postOffers !== undefined ? (
+                              <>
+                                {postOffers.map((element) => {
+                                  return (
+                                    <>
+                                      <Card
+                                        className="offer-card"
+                                        style={{ width: "15rem" }}
+                                      >
+                                        <div className="worker-img">
+                                          <img
+                                            src="../images/user-img.png"
+                                            width="80px"
+                                            height="80px"
+                                          />
+                                        </div>
+                                        <Card.Body>
+                                          <Card.Title className="offer-title">
+                                            {element.worker.user.name}
+                                          </Card.Title>
+                                          <Card.Text className="offer-text">
+                                            <label className="user-card-label">
+                                              <small>Price/ </small>
+                                            </label>
+                                            {element.offer_price}
+                                          </Card.Text>
+                                          <Card.Text className="offer-text">
+                                            <label className="user-card-label">
+                                              <small>Speciality/ </small>
+                                            </label>
+                                            {element.worker.speciality}
+                                          </Card.Text>
+                                          <div className="offer-btns">
+                                            <Button variant="success" size="sm">
+                                              Accept
+                                            </Button>
+                                            <Button variant="danger" size="sm">
+                                              Reject
+                                            </Button>
+                                          </div>
+                                        </Card.Body>
+                                      </Card>
+                                    </>
+                                  );
+                                })}
+                              </>
+                            ) : (
+                              ""
+                            )}
+                          </div>
+                        </>
+                      )}
                     </Card.Body>
                     <Card.Footer className="text-muted"></Card.Footer>
                   </Card>

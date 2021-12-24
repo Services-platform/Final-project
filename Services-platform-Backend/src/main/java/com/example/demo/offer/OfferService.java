@@ -9,6 +9,7 @@ import com.example.demo.worker.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,6 +33,19 @@ public class OfferService {
     public Offer getOffer(String id) {
         Integer offer_id = Integer.parseInt(id);
         return offerRepository.findById(offer_id).orElse(null);
+    }
+    public List<Offer> getAllOffersByPostId(String id) {
+        Integer post_id = Integer.parseInt(id);
+        List<Offer> offers = offerRepository.findAll();
+        List<Offer> postOffers = new ArrayList<>();
+        for (Offer temp : offers) {
+            if (temp.getPost() != null) {
+                if (temp.getPost().getPost_id() == post_id) {
+                    postOffers.add(temp);
+                }
+            }
+        }
+        return postOffers;
     }
 
     public Offer addOffer(Offer offer, Integer worker_id, Integer post_id) {
