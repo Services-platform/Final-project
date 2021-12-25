@@ -10,21 +10,22 @@
 
 .main-hero {
   display: flex;
-  gap: 20px;
+  flex-direction: row;
+  gap: 5%;
   font-weight: 600;
   padding: 5px;
   font-family: "Fira Sans", sans-serif;
-  background-repeat: no-repeat;
-  background-image: src= "./images/hero-img.jpg";
-  height: 40%;
+  background-color: #eeeeee;
+  height: 29.3%;
   width: 100%;
-  background-size: 100%;
 }
 
 .hero-text {
-  margin-top: 10%;
-  margin-left: 40%;
-  color: #fff;
+  margin-top: 8%;
+  margin-left: 5%;
+}
+.hero-img {
+  margin-top: 2%;
 }
 
 .hero-text h1 {
