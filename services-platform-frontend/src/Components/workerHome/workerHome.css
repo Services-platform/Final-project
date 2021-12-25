@@ -3,7 +3,6 @@
 .worker-main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #eeeeee;
 }
@@ -45,10 +44,6 @@
   display: flex;
   justify-content: center;
   margin-top: 10%;
-}
-.card-img {
-  padding: 5px;
-  border-radius: 7px;
 }
 .send-offer-btn {
   font-family: "Fira Sans", sans-serif;

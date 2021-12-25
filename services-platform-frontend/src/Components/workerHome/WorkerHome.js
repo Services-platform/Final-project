@@ -73,14 +73,10 @@ function WorkerHome() {
               {requests.map((element, index) => {
                 return (
                   <Card key={index} className="card" style={{ width: "22rem" }}>
-                    <div className="card-category">
-                      <Card.Text>{element.category.category_name}</Card.Text>
-                    </div>
-                    <Card.Img
-                      className="card-img"
-                      variant="top"
-                      src={element.image}
-                    />
+                    <Card.Header className="card-category">
+                      {element.category.category_name}
+                    </Card.Header>
+                    <Card.Img variant="top" src={element.image} />
                     <Card.Body>
                       <Card.Title className="card-title">
                         {element.title}

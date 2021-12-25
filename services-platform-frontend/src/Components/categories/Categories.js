@@ -57,7 +57,7 @@ function Categories() {
               </div>
               <div>
                 <img src="./images/gas.png" width="25px" height="25px" />
-                <label className="icon-txt">Delivery of fuel.</label>
+                <label className="icon-txt">Delivery of Gas.</label>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ function Categories() {
               </div>
               <div>
                 <img src="./images/gas-pump.png" width="25px" height="25px" />
-                <label className="icon-txt">Delivery of Gas.</label>
+                <label className="icon-txt">Delivery of fuel.</label>
               </div>
             </div>
           </div>

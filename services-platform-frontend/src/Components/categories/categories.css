@@ -40,14 +40,13 @@
 
 .service-icons {
   display: flex;
-  width: 100%;
   flex-direction: column;
   margin-left: 28%;
   align-items: flex-start;
   gap: 10px;
 }
 .car {
-  margin-left: 30%;
+  margin-left: 33%;
 }
 
 .icon-txt {
