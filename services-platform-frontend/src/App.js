@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Signup from "./Components/signup/Signup";
 import Signin from "./Components/login/Signin";
-import Navbar from "./Components/navbar/Navbar";
+import AppNavbar from "./Components/navbar/AppNavbar";
 import UserHome from "./Components/userHome/UserHome";
 import ServiceRequest from "./Components/serviceRequest/ServiceRequest";
 import Offers from "./Components/offers/Offers";
@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        <AppNavbar />
         <Routes>
           <Route path="/Home" element={<UserHome />} />
           <Route path="/worker/Home" element={<WorkerHome />} />

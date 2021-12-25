@@ -1,4 +1,11 @@
-.navbar {
-    font-family: 'droidKufiRegular', sans-serif !important;
-    background-color:#fff !important;
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+
+.my-navbar {
+  font-family: "droidKufiRegular", sans-serif !important;
+}
+.nav-container {
+  max-width: 100%;
+}
+.nav-text-items {
+  margin-right: 10%;
 }
