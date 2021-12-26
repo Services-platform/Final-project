@@ -47,6 +47,21 @@ public class OfferService {
         }
         return postOffers;
     }
+    public List<Offer> getApprovedOffersByWorkerId(String id) {
+        Integer worker_id = Integer.parseInt(id);
+        List<Offer> offers = offerRepository.findAll();
+        List<Offer> workerApprovedOffers = new ArrayList<>();
+        for (Offer temp : offers) {
+            if (temp.getWorker() != null) {
+                if (temp.getWorker().getUser().getId() == worker_id) {
+                    if(temp.getOffer_status().toString().equals("Accepted")){
+                        workerApprovedOffers.add(temp);
+                    }
+                }
+            }
+        }
+        return workerApprovedOffers;
+    }
 
     public Offer addOffer(Offer offer, Integer worker_id, Integer post_id) {
         Worker worker = workerRepository.findById(worker_id).orElse(null);
@@ -59,5 +74,14 @@ public class OfferService {
     public void deleteOffer(String id) {
         Integer offer_id = Integer.parseInt(id);
         offerRepository.deleteById(offer_id);
+    }
+
+    public void updateOfferStatus(String id, String status) {
+        Integer offer_id = Integer.parseInt(id);
+        Offer offer = offerRepository.findById(offer_id).orElse(null);
+        if (offer != null){
+            offer.setOffer_status(status);
+            offerRepository.save(offer);
+        }
     }
 }

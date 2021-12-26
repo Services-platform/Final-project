@@ -1,6 +1,7 @@
 package com.example.demo.offer;
 
 import com.example.demo.post.Post;
+import com.example.demo.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,10 +32,17 @@ public class OfferController {
     @GetMapping("post/{id}")
     public List<Offer> getAllOffersByPostId(@PathVariable String id){ return offerService.getAllOffersByPostId(id); }
 
+    @GetMapping("worker/{id}")
+    public List<Offer> getAllOffersByWorkerId(@PathVariable String id){ return offerService.getApprovedOffersByWorkerId(id); }
 
     @PostMapping
     public Offer addOffer(@RequestBody Form form){
         return offerService.addOffer(form.getOffer(), form.getWorker_id(), form.getPost_id());
+    }
+
+    @PutMapping("/{id}")
+    public void updateOfferStatus(@PathVariable String id, @RequestBody Form formData){
+        offerService.updateOfferStatus(id, formData.getOffer().getOffer_status());
     }
 
     @DeleteMapping("{id}")
