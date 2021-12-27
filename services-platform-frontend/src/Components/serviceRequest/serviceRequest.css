@@ -8,9 +8,9 @@
 .request-body {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   font-family: "Fira Sans", sans-serif;
+  margin-bottom: 3%;
 }
 .request-header {
   margin-top: 2%;

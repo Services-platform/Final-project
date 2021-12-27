@@ -55,7 +55,7 @@ function WorkerHome() {
   }, []);
   return (
     <div className="home-container">
-      <div>
+      <div className="sidbar">
         <SideBar />
       </div>
       <div className="worker-main">

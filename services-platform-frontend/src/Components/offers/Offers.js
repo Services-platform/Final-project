@@ -30,7 +30,7 @@ function Offers() {
   }, []);
   return (
     <div className="offer-container">
-      <div>
+      <div className="sidbar">
         <SideBar />
       </div>
       <div className="worker-offers-body">

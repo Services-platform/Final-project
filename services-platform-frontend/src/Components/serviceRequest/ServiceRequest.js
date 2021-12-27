@@ -65,7 +65,7 @@ function ServiceRequest() {
   return (
     <>
       <div className="request-container">
-        <div>
+        <div className="sidbar">
           <SideBar />
         </div>
         <div className="request-body">

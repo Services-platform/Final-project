@@ -2,6 +2,9 @@
   display: grid;
   grid-template-columns: 2fr 10fr;
 }
+.sidbar {
+  background-color: #222d32;
+}
 
 .main {
   display: flex;
@@ -16,7 +19,7 @@
   padding: 5px;
   font-family: "Fira Sans", sans-serif;
   background-color: #eeeeee;
-  height: 29.3%;
+  height: 33.6%;
   width: 100%;
 }
 

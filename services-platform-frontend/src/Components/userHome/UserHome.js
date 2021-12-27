@@ -5,14 +5,11 @@ import "./userHome.css";
 function UserHome() {
   return (
     <div className="home-container">
-      <div>
+      <div className="sidbar">
         <SideBar />
       </div>
       <div className="main">
-        <div
-          className="main-hero"
-          // style={{ backgroundImage: "url(./images/hero-1.jpg)" }}
-        >
+        <div className="main-hero">
           <div className="hero-text">
             <h1>
               Welcome to <span className="app-name">Handler</span>

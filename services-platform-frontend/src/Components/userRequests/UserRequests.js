@@ -73,7 +73,7 @@ function UserRequests() {
   };
   return (
     <div className="user-requests-container">
-      <div>
+      <div className="sidbar">
         <SideBar />
       </div>
       <div className="user-requests-body">
