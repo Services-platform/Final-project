@@ -34,9 +34,7 @@ function WorkerHome() {
     };
     axios
       .post("http://localhost:8080/offer", offerData, config)
-      .then((response) => {
-        console.log(response);
-      })
+      .then((response) => {})
       .catch((err) => {
         console.log(err);
       });

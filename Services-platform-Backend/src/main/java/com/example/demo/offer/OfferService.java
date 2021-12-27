@@ -3,7 +3,6 @@ package com.example.demo.offer;
 import com.example.demo.category.Category;
 import com.example.demo.post.Post;
 import com.example.demo.post.PostRepository;
-import com.example.demo.user.User;
 import com.example.demo.worker.Worker;
 import com.example.demo.worker.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +63,7 @@ public class OfferService {
     }
 
     public Offer addOffer(Offer offer, Integer worker_id, Integer post_id) {
-        Worker worker = workerRepository.findById(worker_id).orElse(null);
+        Worker worker = workerRepository.findByUserId(worker_id);
         Post post = postRepository.findById(post_id).orElse(null);
         offer.setWorker(worker);
         offer.setPost(post);

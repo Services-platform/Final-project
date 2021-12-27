@@ -9,6 +9,7 @@ function UserRequests() {
   const [userPosts, setUserPosts] = useState();
   const [postOffers, setPostOffers] = useState();
   const [showOffers, setShowOffers] = useState(false);
+  const [showWorkerDetails, setShowWorkerDetails] = useState(false);
 
   const state = useSelector((state) => {
     return {
@@ -46,6 +47,25 @@ function UserRequests() {
         setUserPosts((userPosts) =>
           userPosts.filter((post) => post.post_id !== postId)
         );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const acceptOffer = (id) => {
+    const status = {
+      offer: {
+        offer_status: "Accepted",
+      },
+    };
+    axios
+      .put("http://localhost:8080/offer/" + id, status, config)
+      .then((response) => {
+        console.log(response);
+        setPostOffers((postOffers) =>
+          postOffers.filter((element) => element.offer_id === id)
+        );
+        setShowWorkerDetails(true);
       })
       .catch((err) => {
         console.log(err);
@@ -101,33 +121,51 @@ function UserRequests() {
                         </div>
                       </div>
                       <div className="user-post-btns">
-                        <Button
-                          variant="danger"
-                          className="delete-request-btn"
-                          onClick={() => {
-                            deletePost(element.post_id);
-                          }}
-                        >
-                          Delete Request
-                        </Button>
-                        <Button
-                          variant="warning"
-                          className="delete-request-btn"
-                          onClick={() => {
-                            showOffers
-                              ? setShowOffers(false)
-                              : setShowOffers(true);
-                            getOffers(element.post_id);
-                          }}
-                        >
-                          Show offers
-                        </Button>
+                        {showWorkerDetails ? (
+                          <Button
+                            variant="warning"
+                            className="delete-request-btn"
+                            onClick={() => {
+                              showOffers
+                                ? setShowOffers(false)
+                                : setShowOffers(true);
+                            }}
+                          >
+                            {showOffers ? "Hide" : "Show"} Worker Details
+                          </Button>
+                        ) : (
+                          <>
+                            <Button
+                              variant="danger"
+                              className="delete-request-btn"
+                              onClick={() => {
+                                deletePost(element.post_id);
+                              }}
+                            >
+                              Delete Request
+                            </Button>
+                            <Button
+                              variant="warning"
+                              className="delete-request-btn"
+                              onClick={() => {
+                                showOffers
+                                  ? setShowOffers(false)
+                                  : setShowOffers(true);
+                                getOffers(element.post_id);
+                              }}
+                            >
+                              Show offers
+                            </Button>
+                          </>
+                        )}
                       </div>
                       {showOffers && (
                         <>
                           <div className="request-header">
                             <hr />
-                            <h3>Offers</h3>
+                            <h3>
+                              {showWorkerDetails ? "Worker Details" : "Offers"}
+                            </h3>
                           </div>
                           <div className="user-offers">
                             {postOffers !== undefined ? (
@@ -162,14 +200,32 @@ function UserRequests() {
                                             </label>
                                             {element.worker.speciality}
                                           </Card.Text>
-                                          <div className="offer-btns">
-                                            <Button variant="success" size="sm">
-                                              Accept
-                                            </Button>
-                                            <Button variant="danger" size="sm">
-                                              Reject
-                                            </Button>
-                                          </div>
+                                          <Card.Text className="offer-text">
+                                            <label className="user-card-label">
+                                              <small>Rating/ </small>
+                                            </label>
+                                            {element.worker.rating}/5
+                                          </Card.Text>
+                                          {showWorkerDetails ? (
+                                            <Card.Text className="offer-text">
+                                              <label className="user-card-label">
+                                                <small>Phone/ </small>
+                                              </label>
+                                              {element.worker.user.phone}
+                                            </Card.Text>
+                                          ) : (
+                                            <div className="offer-btns">
+                                              <Button
+                                                variant="success"
+                                                size="sm"
+                                                onClick={() => {
+                                                  acceptOffer(element.offer_id);
+                                                }}
+                                              >
+                                                Accept
+                                              </Button>
+                                            </div>
+                                          )}
                                         </Card.Body>
                                       </Card>
                                     </>
