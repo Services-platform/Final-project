@@ -13,40 +13,42 @@ function SideBar() {
     <div>
       <div className="side-bar-container">
         <div className="side-bar-items">
-          {state.isLogedIn ? (
-            <>
-              <div className="profile-name">
-                <img src={profileImg} height="35px" width="35px" />
-                <h3 className="user-first-name">{state.user.name}</h3>
-              </div>
-              <a className="nav-link text-white" href="#">
-                Profile
-              </a>
-            </>
-          ) : (
-            ""
-          )}
-          {state.user.role === "USER" ? (
-            <>
-              <a className="nav-link text-white" href="/Home">
-                Home
-              </a>
-              <a className="nav-link text-white" href="/user/requests">
-                My Requests
-              </a>
-            </>
-          ) : state.user.role === "WORKER" ? (
-            <>
-              <a className="nav-link text-white" href="/worker/Home">
-                Requests
-              </a>
-              <a className="nav-link text-white" href="/offers">
-                Accepted offers
-              </a>
-            </>
-          ) : (
-            ""
-          )}
+          <div className="user-side-bar">
+            {state.isLogedIn ? (
+              <>
+                <div className="profile-name">
+                  <img src={profileImg} height="35px" width="35px" />
+                  <h3 className="user-first-name">{state.user.name}</h3>
+                </div>
+                <a className="nav-link text-white" href="#">
+                  Profile
+                </a>
+              </>
+            ) : (
+              ""
+            )}
+            {state.user.role === "USER" ? (
+              <>
+                <a className="nav-link text-white" href="/Home">
+                  Home
+                </a>
+                <a className="nav-link text-white" href="/user/requests">
+                  My Requests
+                </a>
+              </>
+            ) : state.user.role === "WORKER" ? (
+              <>
+                <a className="nav-link text-white" href="/worker/Home">
+                  Requests
+                </a>
+                <a className="nav-link text-white" href="/offers">
+                  Accepted offers
+                </a>
+              </>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </div>

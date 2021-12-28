@@ -16,6 +16,14 @@
   flex-direction: column;
   align-items: center;
 }
+.user-side-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top: 10px;
+  overflow: hidden;
+}
 .profile-name {
   display: flex;
   justify-content: center;
