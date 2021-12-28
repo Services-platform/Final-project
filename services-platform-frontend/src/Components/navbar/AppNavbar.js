@@ -25,7 +25,7 @@ function AppNavbar() {
       <div className="my-navbar">
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
           <Container className="nav-container">
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="/Home">
               <img src={AppLogo} width="100%" height="100%" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -22,6 +22,7 @@ function Signin() {
         // add to redux
         const userAction = addUser({
           id: decoded.id,
+          name: decoded.name,
           role: decoded.role,
           email: decoded.sub,
         });

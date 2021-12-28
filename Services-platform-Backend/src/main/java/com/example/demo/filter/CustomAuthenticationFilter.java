@@ -58,6 +58,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         com.example.demo.user.User dbUser = userRepository.findByEmail(user.getUsername());
         Map<String, String> payload = new HashMap<>();
         payload.put("id", Integer.toString(dbUser.getId()));
+        payload.put("name", (dbUser.getName()));
         Role role = dbUser.getRole();
         payload.put("role", role.getName());
 
