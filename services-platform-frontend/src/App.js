@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import Signup from "./Components/signup/Signup";
 import Signin from "./Components/login/Signin";
 import AppNavbar from "./Components/navbar/AppNavbar";
@@ -8,6 +9,7 @@ import ServiceRequest from "./Components/serviceRequest/ServiceRequest";
 import Offers from "./Components/offers/Offers";
 import WorkerHome from "./Components/workerHome/WorkerHome";
 import UserRequests from "./Components/userRequests/UserRequests";
+import Profile from "./profile/Profile";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/service/request" element={<ServiceRequest />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/user/requests" element={<UserRequests />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

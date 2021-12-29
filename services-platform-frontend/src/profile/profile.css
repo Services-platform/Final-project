@@ -1,0 +1,53 @@
+.profile-container {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  background-color: #eeeeee;
+  font-family: "Fira Sans", sans-serif;
+}
+.profile-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-header {
+  margin-top: 3%;
+  text-align: center;
+}
+.profile-form {
+  margin-top: 1%;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  width: 60%;
+  height: auto;
+}
+.profile-label {
+  font-weight: 500;
+  padding: 5px;
+  font-family: "Fira Sans", sans-serif;
+}
+.label-icon {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.div-icon {
+  font-family: "Fira Sans", sans-serif;
+  font-size: small;
+  align-self: center;
+}
+
+.edit-icon:hover {
+  cursor: pointer;
+  color: #555555;
+}
+.small-label {
+  color: #928f8f;
+}
+.user-profime-img {
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+}
