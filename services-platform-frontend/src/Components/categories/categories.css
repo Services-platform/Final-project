@@ -16,7 +16,7 @@
 
 .category-list {
   margin-top: 30px;
-  margin-bottom: 100px;
+  margin-bottom: 2%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;

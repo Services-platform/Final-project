@@ -60,9 +60,13 @@ function SideBar() {
             ) : (
               ""
             )}
-            <a onClick={logout} className="nav-link text-white" href="#">
-              Logout
-            </a>
+            {state.isLogedIn ? (
+              <a onClick={logout} className="nav-link text-white" href="#">
+                Logout
+              </a>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
