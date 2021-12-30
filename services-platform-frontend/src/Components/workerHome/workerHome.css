@@ -10,9 +10,16 @@
   font-family: "Fira Sans", sans-serif;
   font-weight: 500;
   margin-top: 3%;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
-
+.filter-requests-btn-group {
+  margin-bottom: 3%;
+}
+.requests-btn-group {
+  background-color: #222d32;
+  color: #eeeeee;
+  font-family: "Fira Sans", sans-serif;
+}
 .card-category {
   font-family: "Fira Sans", sans-serif;
   font-weight: 500;

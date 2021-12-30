@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, Button, Modal, Form } from "react-bootstrap";
+import { Card, Button, Modal, Form, ButtonGroup } from "react-bootstrap";
 import SideBar from "../sidebar/SideBar";
 import "./workerHome.css";
 
 function WorkerHome() {
+  const [allRequests, setAllRequests] = useState();
   const [requests, setRequests] = useState();
   const [show, setShow] = useState(false);
   const [offerPrice, setOfferPrice] = useState();
@@ -48,11 +49,46 @@ function WorkerHome() {
       .get("http://localhost:8080/posts", config)
       .then((response) => {
         setRequests(response.data);
+        setAllRequests(response.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  const showAll = () => {
+    if (allRequests !== undefined) {
+      setRequests(allRequests);
+    }
+  };
+
+  const filterHomeRequests = () => {
+    const homeRequests = allRequests.filter((element) => {
+      return element.category.category_name === "Home Services";
+    });
+    if (homeRequests !== undefined) {
+      setRequests(homeRequests);
+    }
+  };
+
+  const filterCarRequests = () => {
+    const carRequests = allRequests.filter((element) => {
+      return element.category.category_name === "Car Services";
+    });
+    if (carRequests !== undefined) {
+      setRequests(carRequests);
+    }
+  };
+
+  const filterPhoneRequests = () => {
+    const phoneRequests = allRequests.filter((element) => {
+      return element.category.category_name === "Phone Services";
+    });
+    if (phoneRequests !== undefined) {
+      setRequests(phoneRequests);
+    }
+  };
+
   return (
     <div className="home-container">
       <div className="sidbar">
@@ -64,6 +100,38 @@ function WorkerHome() {
             Users Requests
             <hr />
           </h1>
+        </div>
+        <div className="filter-requests-btn-group">
+          <ButtonGroup aria-label="Basic example" size="sm">
+            <Button
+              className="requests-btn-group"
+              variant="secondary"
+              onClick={showAll}
+            >
+              All
+            </Button>
+            <Button
+              className="requests-btn-group"
+              variant="secondary"
+              onClick={filterHomeRequests}
+            >
+              Home services Requests
+            </Button>
+            <Button
+              className="requests-btn-group"
+              variant="secondary"
+              onClick={filterCarRequests}
+            >
+              Car services Requests
+            </Button>
+            <Button
+              className="requests-btn-group"
+              variant="secondary"
+              onClick={filterPhoneRequests}
+            >
+              Phone services Requests
+            </Button>
+          </ButtonGroup>
         </div>
         <div className="request-cards">
           {requests !== undefined ? (
